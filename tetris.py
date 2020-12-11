@@ -127,8 +127,24 @@ class Tetris():
                     print("XX", end='')
             print()
 
-    def deleteFullLines(self):
-        return
+    def deleteFullLines(s,b,top,dy,dx,dw):
+        if b == None :
+            return s
+        nDeleted = 0
+        nScanned = b.get_dy()
+        if top + b.get_dy() -1 >= dy :
+            nScanned -= (top+b.get_dy()-dy)
+        zero = Matrix(1,dx-2*dw)
+        for y in range(nScanned-1,-1,-1):
+            
+            cy = top+y+nDeleted
+            line = s.clip(cy,0,cy+1,s.get_dx())
+            if line.sum() == s.get_dx() :
+                temp = s.clip(0,0,cy,s.get_dx())
+                s.paste(temp,1,0)
+                s.paste(zero,0,dw)
+                nDeleted = nDeleted +1
+        return s
 
 ### end of class Tetris():
     

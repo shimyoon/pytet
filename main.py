@@ -82,6 +82,17 @@ if __name__ == "__main__":
                   print('Game Over!!!')
                   break
               board.printScreen()
+            
+        elif key=='a':       
+              left-=1
+        elif key=='d':   
+              left+=1
+        elif key=='s':       
+              top-=1
+        elif key=='w':
+             currBlk=Matrix(arrayBlk[h][i])
+        elif key==' ':
+              break
         else:
           print('Game aborted...')
           break

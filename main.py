@@ -92,7 +92,13 @@ if __name__ == "__main__":
         elif key=='w':
              currBlk=Matrix(arrayBlk[h][i])
         elif key==' ':
-              break
+             while not tempBlk.anyGreaterThan(1):
+                top+=1
+                tempBlk = iScreen.clip(top, left, top+currBlk.get_dy(), left+currBlk.get_dx())
+                tempBlk = tempBlk + currBlk
+                if tempBlk.anyGreaterThan(1):
+                    top-=1
+                    newBlockNeeded = True
         else:
           print('Game aborted...')
           break
